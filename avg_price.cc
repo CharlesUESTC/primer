@@ -1,30 +1,31 @@
 #include <iostream>
-#include "Sales_item.h"
+#include "Sales_data.h"
+
+using std::cerr; using std::cin; using std::cout; using std::endl;
 
 int main()
 {
-    Sales_item total; // variable to hold data for the next transaction
+    Sales_data total; // variable to hold data for the next transaction
 
     // read the first transaction and ensure that there are data to process
-    if (std::cin >> total) {
-        Sales_item trans; // variable to hold the running sum
+    if (read(cin, total)) {
+        Sales_data trans; // variable to hold the running sum
         // read and process the remaining transactions
-        while (std::cin >> trans) {
+        while (read(cin, trans)) {
             // if we're still processing the same book
             if (total.isbn() == trans.isbn())
-                total += trans; // update the running total
+                total.combine(trans); // update the running total
             else {
                 // print results for the previous book
-                std::cout << total << std::endl;
+                print(cout, total) << endl;
                 total = trans;  // total now refers to the next book
             }
         }
-        std::cout << total << std::endl; // print the last transaction
+        print(cout, total) << endl; // print the last transaction
     }
     else {
         // no input! warn the user
-        std::cerr << "No data?!" << std::endl;
-        return -1;  // indicate failure
+        cerr << "No data?!" << endl;
     }
 
     return 0;
