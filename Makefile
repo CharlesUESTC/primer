@@ -1,5 +1,5 @@
 # executable files for this directory
-OBJECTS = avg_price.exe
+OBJECTS = avg_price.exe useBlob.exe
 
 # tells make to use the file "../GNU_makefile_template", which
 # defines general rules for making .o and .exe files
