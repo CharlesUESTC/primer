@@ -19,5 +19,8 @@ int main()
     const StrBlob b3 = b1;
     cout << b3.front() << " " << b3.back() << endl;
 
+    for (auto it = b1.begin(); neq(it, b1.end()); it.incr())
+        cout << it.deref() << endl;
+
     return 0;
 }
