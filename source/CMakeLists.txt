@@ -1,0 +1,2 @@
+add_subdirectory(pmclasses)
+add_subdirectory(pmdynamicmemory)

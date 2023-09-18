@@ -9,8 +9,10 @@ project($PROJECT_NAME)
 # Paths that are searched when `include(...)` is called.
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/operations/cmake)
 
-# Configuration.
+# CONFIGURATION.
+################
 include(OJConfigure)
 
-add_executable(avg_price avg_price.cpp Sales_data.cpp)
-add_executable(useBlob useBlob.cpp)
+# SUBDIRECTORIES.
+#################
+add_subdirectory(source)

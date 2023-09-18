@@ -1,5 +1,6 @@
 #include <iostream>
-#include "StrBlob.h"
+
+#include "strblob.h"
 
 using std::cout; using std::endl;
 

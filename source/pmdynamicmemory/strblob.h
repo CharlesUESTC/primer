@@ -1,5 +1,5 @@
-#ifndef STR_BLOB_H
-#define STR_BLOB_H
+#ifndef STRBLOB_H
+#define STRBLOB_H
 
 #include <string>
 #include <vector>
@@ -48,6 +48,7 @@ private:
 class StrBlobPtr
 {
     friend bool eq(const StrBlobPtr &, const StrBlobPtr &);
+    friend bool neq(const StrBlobPtr &, const StrBlobPtr &);
 public:
     StrBlobPtr(): curr(0) { }
     StrBlobPtr(StrBlob &a, size_t sz = 0):
@@ -68,7 +69,7 @@ private:
 
 // constructor
 inline
-StrBlob::StrBlob(std::initializer_list<std::string> il): 
+StrBlob::StrBlob(std::initializer_list<std::string> il):
               data(std::make_shared<std::vector<std::string>>(il)) { }
 
 void StrBlob::check(size_type i, const std::string &msg) const
@@ -171,7 +172,7 @@ bool eq(const StrBlobPtr& lhs, const StrBlobPtr &rhs)
 
 bool neq(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
-    return !eq(lhs, rhs); 
+    return !eq(lhs, rhs);
 }
 
 #endif
