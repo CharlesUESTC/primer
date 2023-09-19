@@ -1,12 +1,11 @@
-set(AVGPRICE_SOURCES
-    avgprice.cpp
+add_library(PMClasses STATIC)
+
+set(PRIVATE_SOURCE
     salesdata.cpp
     salesdata.h
 )
 
-add_executable(avgprice)
-
-target_sources(avgprice
+target_sources(PMClasses
     PRIVATE
-        ${AVGPRICE_SOURCES}
+        ${PRIVATE_SOURCE}
 )

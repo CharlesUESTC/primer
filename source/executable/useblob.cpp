@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "strblob.h"
+#include "pmdynamicmemory/strblob.h"
 
 using std::cout; using std::endl;
 

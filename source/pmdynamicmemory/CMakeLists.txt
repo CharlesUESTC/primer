@@ -1,11 +1,11 @@
-set(USEBLOB_SOURCES
+add_library(PMDynamicMemory STATIC)
+
+set(PRIVATE_SOURCE
+    strblob.cpp
     strblob.h
-    useblob.cpp
 )
 
-add_executable(useblob)
-
-target_sources(useblob
+target_sources(PMDynamicMemory
     PRIVATE
-        ${USEBLOB_SOURCES}
+        ${PRIVATE_SOURCE}
 )

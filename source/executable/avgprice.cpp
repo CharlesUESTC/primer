@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "salesdata.h"
+#include "pmclasses/salesdata.h"
 
 using std::cerr; using std::cin; using std::cout; using std::endl;
 
