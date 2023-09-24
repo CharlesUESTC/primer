@@ -1,4 +1,4 @@
-#include "strblob.h"
+#include "pmdynamicmemory/strblob.h"
 
 #include <memory>
 #include <stdexcept>
@@ -48,7 +48,7 @@ void StrBlob::check(size_type i, const std::string &msg) const
 std::string &StrBlobPtr::deref() const
 {
     auto p = check(curr, "dereference past end");
-    return (*p)[curr];  // (*p) is the vector to which this object points
+    return (*p)[curr]; // (*p) is the vector to which this object points
 }
 
 // prefix: return a reference to the incremented object
@@ -63,15 +63,14 @@ StrBlobPtr &StrBlobPtr::incr()
 StrBlobPtr &StrBlobPtr::decr()
 {
     // if curr is zero, decrementing it will yield an invalid subscript
-    --curr;       // move the current state back one element
+    --curr; // move the current state back one element
     check(curr, "decrement past begin of StrBlobPtr");
     return *this;
 }
 
-std::shared_ptr<std::vector<std::string>>
-StrBlobPtr::check(std::size_t i, const std::string &msg) const
+std::shared_ptr<std::vector<std::string>> StrBlobPtr::check(std::size_t i, const std::string &msg) const
 {
-    auto ret = wptr.lock();   // is the vector still around?
+    auto ret = wptr.lock(); // is the vector still around?
 
     if (!ret)
         throw std::runtime_error("unbound StrBlobPtr");
@@ -81,7 +80,7 @@ StrBlobPtr::check(std::size_t i, const std::string &msg) const
 }
 
 // named equality operators for StrBlobPtr
-bool eq(const StrBlobPtr& lhs, const StrBlobPtr &rhs)
+bool eq(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
     auto l = lhs.wptr.lock(), r = rhs.wptr.lock();
     // if the underlying vector is the same

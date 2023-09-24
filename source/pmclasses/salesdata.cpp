@@ -1,12 +1,9 @@
-#include "salesdata.h"
+#include "pmclasses/salesdata.h"
 
 #include <iostream>
 #include <string>
 
-using std::istream;
-using std::ostream;
-
-SalesData::SalesData(istream &is)
+SalesData::SalesData(std::istream &is)
 {
     // read will read a transaction from is into this object
     read(is, *this);
@@ -23,14 +20,14 @@ SalesData &SalesData::combine(const SalesData &rhs)
 
 SalesData add(const SalesData &lhs, const SalesData &rhs)
 {
-    SalesData sum = lhs;  // copy data members from lhs into sum
-    sum.combine(rhs);      // add data members from rhs into sum
+    SalesData sum = lhs; // copy data members from lhs into sum
+    sum.combine(rhs);    // add data members from rhs into sum
 
     return sum;
 }
 
 // transactions contain ISBN, number of copies sold, and sales price
-istream &read(istream &is, SalesData &item)
+std::istream &read(std::istream &is, SalesData &item)
 {
     double price = 0;
 
@@ -40,10 +37,9 @@ istream &read(istream &is, SalesData &item)
     return is;
 }
 
-ostream &print(ostream &os, const SalesData &item)
+std::ostream &print(std::ostream &os, const SalesData &item)
 {
-    os << item.isbn() << " " << item.units_sold << " "
-       << item.revenue << " " << item.avg_price();
+    os << item.isbn() << " " << item.units_sold << " " << item.revenue << " " << item.avg_price();
 
     return os;
 }
