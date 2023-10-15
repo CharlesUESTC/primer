@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.21)
 
-set (PROJECT_NAME "primer")
-project($PROJECT_NAME)
+set(PROJECT_NAME "primer")
+project(${PROJECT_NAME})
 
 
 # CMAKE MODULE SETUP.
