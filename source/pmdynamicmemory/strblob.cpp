@@ -43,7 +43,6 @@ void StrBlob::check(size_type i, const std::string &msg) const
         throw std::out_of_range(msg);
 }
 
-
 // StrBlobPtr
 std::string &StrBlobPtr::deref() const
 {
