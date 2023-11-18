@@ -1,4 +1,5 @@
 add_subdirectory(executable)
 add_subdirectory(pmclasses)
+add_subdirectory(pmcopycontrol)
 add_subdirectory(pmdynamicmemory)
 add_subdirectory(pmfunctions)
