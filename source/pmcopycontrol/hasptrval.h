@@ -1,32 +1,32 @@
-#ifndef HASPTR_H_
-#define HASPTR_H_
+#ifndef HASPTRVAL_H_
+#define HASPTRVAL_H_
 
 #include <string>
 #include <utility>
 
 // value-like implementation of HasPtr
-class HasPtr
+class HasPtrVal
 {
-    friend void swap(HasPtr &lhs, HasPtr &rhs);
+    friend void swap(HasPtrVal &lhs, HasPtrVal &rhs);
 
 public:
-    HasPtr(const std::string &s = std::string()): ps(new std::string(s)), i(0)
+    HasPtrVal(const std::string &s = std::string()): ps(new std::string(s)), i(0)
     {
     }
 
     // each HasPtr has its own copy of the string to which it points
-    HasPtr(const HasPtr &p): ps(new std::string(*p.ps)), i(p.i)
+    HasPtrVal(const HasPtrVal &p): ps(new std::string(*p.ps)), i(p.i)
     {
     }
 
-    HasPtr &operator=(const HasPtr &rhs);
-    HasPtr &operator=(const std::string &s)
+    HasPtrVal &operator=(const HasPtrVal &rhs);
+    HasPtrVal &operator=(const std::string &s)
     {
         *ps = s;
         return *this;
     }
 
-    ~HasPtr()
+    ~HasPtrVal()
     {
         delete ps;
     }
@@ -43,7 +43,7 @@ public:
 
     std::string &operator*()
     {
-        return const_cast<std::string &>(*static_cast<const HasPtr &>(*this));
+        return const_cast<std::string &>(*static_cast<const HasPtrVal &>(*this));
     }
 
 private:
@@ -51,11 +51,11 @@ private:
     int i;
 };
 
-inline void swap(HasPtr &lhs, HasPtr &rhs)
+inline void swap(HasPtrVal &lhs, HasPtrVal &rhs)
 {
     using std::swap;
     swap(lhs.ps, rhs.ps); // swap the pointers, not the string data
     swap(lhs.i, rhs.i);   // swap the int members
 }
 
-#endif // HASPTR_H_
+#endif // HASPTRVAL_H_

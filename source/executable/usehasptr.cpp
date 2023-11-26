@@ -1,23 +1,23 @@
 #include <ios>
 #include <iostream>
 
-#include "pmcopycontrol/hasptr.h"
+#include "pmcopycontrol/hasptrval.h"
 
-HasPtr f(HasPtr hp) // HasPtr passed by value, so it is copied
+HasPtrVal f(HasPtrVal hp) // HasPtr passed by value, so it is copied
 {
-    HasPtr ret = hp; // copies the given HasPtr
+    HasPtrVal ret = hp; // copies the given HasPtr
     // process ret
     return ret; // ret and hp are destroyed
 }
 
 int main()
 {
-    HasPtr h("hi mom!"); // allocates a new copy of "hi mom!"
+    HasPtrVal h("hi mom!"); // allocates a new copy of "hi mom!"
     std::cout << std::boolalpha << (h.getPtr() == &*h) << "\n";
     std::cout << (f(h).getPtr() == h.getPtr()) << std::noboolalpha << std::endl; // copy constructor copies h in the call to f
 
-    HasPtr h2(h);
-    HasPtr h3 = h; // acting like values, h2, h3 points to different strings from h
+    HasPtrVal h2(h);
+    HasPtrVal h3 = h; // acting like values, h2, h3 points to different strings from h
     h2 = "hi dad!";
     h3 = "hi son!";
     std::cout << "h: " << *h << std::endl;

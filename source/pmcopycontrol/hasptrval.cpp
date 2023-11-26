@@ -1,8 +1,8 @@
-#include "pmcopycontrol/hasptr.h"
+#include "pmcopycontrol/hasptrval.h"
 
 #include <string>
 
-HasPtr &HasPtr::operator=(const HasPtr &rhs)
+HasPtrVal &HasPtrVal::operator=(const HasPtrVal &rhs)
 {
     auto newp = new std::string(*rhs.ps); // copy the underlying string;
     // Note: if delete ps first, we cannot handle self-assignment
