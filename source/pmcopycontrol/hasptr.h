@@ -20,6 +20,11 @@ public:
     }
 
     HasPtr &operator=(const HasPtr &rhs);
+    HasPtr &operator=(const std::string &s)
+    {
+        *ps = s;
+        return *this;
+    }
 
     ~HasPtr()
     {
@@ -31,9 +36,14 @@ public:
         return ps;
     }
 
-    const std::string &getString() const
+    const std::string &operator*() const
     {
         return *ps;
+    }
+
+    std::string &operator*()
+    {
+        return const_cast<std::string &>(*static_cast<const HasPtr &>(*this));
     }
 
 private:
