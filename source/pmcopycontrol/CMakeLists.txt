@@ -1,6 +1,8 @@
 add_library(PMCopyControl STATIC)
 
 set(PRIVATE_SOURCE
+    hasptrcnt.cpp
+    hasptrcnt.h
     hasptrval.cpp
     hasptrval.h
 )

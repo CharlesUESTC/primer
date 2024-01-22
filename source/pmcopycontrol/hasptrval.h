@@ -20,6 +20,7 @@ public:
     }
 
     HasPtrVal &operator=(const HasPtrVal &rhs);
+
     HasPtrVal &operator=(const std::string &s)
     {
         *ps = s;
