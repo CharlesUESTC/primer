@@ -105,7 +105,8 @@
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
                 "CMAKE_BUILD_TYPE": "Debug",
                 "CMAKE_C_COMPILER": "clang-cl.exe",
-                "CMAKE_CXX_COMPILER": "clang-cl.exe"
+                "CMAKE_CXX_COMPILER": "clang-cl.exe",
+                "CMAKE_MT": "llvm-mt.exe"
             },
             "vendor": {
                 "microsoft.com/VisualStudioSettings/CMake/1.0": {
