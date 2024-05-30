@@ -1,7 +1,12 @@
+# THE CHARIOT PROJECT.
+######################
 cmake_minimum_required(VERSION 3.21)
 
 set(PROJECT_NAME "primer")
 project(${PROJECT_NAME})
+set(MAJOR_VERSION 24)
+set(MINOR_VERSION 2)
+set(PATCH_VERSION 0)
 
 
 # CMAKE MODULE SETUP.
