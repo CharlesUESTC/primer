@@ -18,9 +18,7 @@ public:
     typedef std::vector<std::string>::size_type size_type;
 
     // constructors
-    StrBlob(): data(std::make_shared<std::vector<std::string>>())
-    {
-    }
+    StrBlob(): data(std::make_shared<std::vector<std::string>>()) { }
     StrBlob(std::initializer_list<std::string> il);
 
     // size operations
@@ -63,12 +61,8 @@ class StrBlobPtr
     friend bool neq(const StrBlobPtr &, const StrBlobPtr &);
 
 public:
-    StrBlobPtr(): curr(0)
-    {
-    }
-    StrBlobPtr(StrBlob &a, size_t sz = 0): wptr(a.data), curr(sz)
-    {
-    }
+    StrBlobPtr(): curr(0) { }
+    StrBlobPtr(StrBlob &a, size_t sz = 0): wptr(a.data), curr(sz) { }
 
     std::string &deref() const;
     StrBlobPtr &incr(); // prefix version
@@ -83,9 +77,7 @@ private:
 };
 
 // constructor
-inline StrBlob::StrBlob(std::initializer_list<std::string> il): data(std::make_shared<std::vector<std::string>>(il))
-{
-}
+inline StrBlob::StrBlob(std::initializer_list<std::string> il): data(std::make_shared<std::vector<std::string>>(il)) { }
 
 // begin and end members for StrBlob
 inline StrBlobPtr StrBlob::begin()

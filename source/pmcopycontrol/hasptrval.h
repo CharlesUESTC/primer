@@ -10,14 +10,10 @@ class HasPtrVal
     friend void swap(HasPtrVal &lhs, HasPtrVal &rhs);
 
 public:
-    HasPtrVal(const std::string &s = std::string()): ps(new std::string(s)), i(0)
-    {
-    }
+    HasPtrVal(const std::string &s = std::string()): ps(new std::string(s)), i(0) { }
 
     // each HasPtr has its own copy of the string to which it points
-    HasPtrVal(const HasPtrVal &p): ps(new std::string(*p.ps)), i(p.i)
-    {
-    }
+    HasPtrVal(const HasPtrVal &p): ps(new std::string(*p.ps)), i(p.i) { }
 
     HasPtrVal &operator=(const HasPtrVal &rhs);
 

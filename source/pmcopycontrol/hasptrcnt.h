@@ -9,9 +9,7 @@ class HasPtrCnt
 {
 public:
     // constructor allocates a new string and and a new counter, which it sets to 1
-    HasPtrCnt(const std::string &s = std::string()): ps(new std::string(s)), i(0), use(new std::size_t(1))
-    {
-    }
+    HasPtrCnt(const std::string &s = std::string()): ps(new std::string(s)), i(0), use(new std::size_t(1)) { }
 
     // copy constructor copies all three data members and increments the counter
     HasPtrCnt(const HasPtrCnt &p): ps(p.ps), i(p.i), use(p.use)
