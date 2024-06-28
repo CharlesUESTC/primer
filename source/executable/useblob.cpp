@@ -4,6 +4,8 @@
 
 int main()
 {
+    using namespace pmdynamicmemory;
+
     StrBlob b1;
 
     {

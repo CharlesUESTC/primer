@@ -7,6 +7,9 @@
 #include <string>
 #include <vector>
 
+namespace pmdynamicmemory
+{
+
 class QueryResult
 {
     friend std::ostream &print(std::ostream &, const QueryResult &);
@@ -25,5 +28,7 @@ private:
 };
 
 std::ostream &print(std::ostream &os, const QueryResult &qr);
+
+} // namespace pmdynamicmemory
 
 #endif // QUERYRESULT_H_

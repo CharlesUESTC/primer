@@ -10,6 +10,9 @@
 
 #include "pmdynamicmemory/queryresult.h"
 
+namespace pmdynamicmemory
+{
+
 class TextQuery
 {
 public:
@@ -24,5 +27,7 @@ private:
     // map each word to teh set of the lines in which that word appears
     std::map<std::string, std::shared_ptr<std::set<line_no>>> wm;
 };
+
+} // namespace pmdynamicmemory
 
 #endif // TEXTQUERY_H_

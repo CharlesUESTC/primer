@@ -8,6 +8,8 @@
 
 void runQueries(std::ifstream &infile)
 {
+    using namespace pmdynamicmemory;
+
     // infile is an ifstream that is the file we want to query
     TextQuery tq(infile); // store the file and build the query map
     // interact with the user: prompt a word to find and print results

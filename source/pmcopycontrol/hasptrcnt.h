@@ -5,6 +5,9 @@
 #include <cstddef>
 #include <string>
 
+namespace pmcopycontrol
+{
+
 class HasPtrCnt
 {
 public:
@@ -47,5 +50,7 @@ private:
     int i;
     std::size_t *use; // member to keep track of how many objects share *ps
 };
+
+} // namespace pmcopycontrol
 
 #endif // HASPTRCNT_H_

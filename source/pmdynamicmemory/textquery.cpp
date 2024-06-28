@@ -12,6 +12,9 @@
 #include "pmdynamicmemory/queryresult.h"
 #include "pmfunctions/makeplural.h"
 
+namespace pmdynamicmemory
+{
+
 TextQuery::TextQuery(std::ifstream &is): file(std::make_shared<std::vector<std::string>>())
 {
     std::string text;
@@ -71,7 +74,8 @@ std::string TextQuery::cleanupStr(const std::string &word)
 std::ostream &print(std::ostream &os, const QueryResult &qr)
 {
     // if the word was found, print the count and all occurrences
-    os << qr.keyword << " occurs " << qr.lines->size() << " " << makePlural(qr.lines->size(), "time", "s") << std::endl;
+    os << qr.keyword << " occurs " << qr.lines->size() << " " << pmfunctions::makePlural(qr.lines->size(), "time", "s")
+       << std::endl;
 
     // print each line in which the word appeared
     for (auto num : *qr.lines) // for every element in the set
@@ -82,3 +86,5 @@ std::ostream &print(std::ostream &os, const QueryResult &qr)
 
     return os;
 }
+
+} // namespace pmdynamicmemory

@@ -4,6 +4,8 @@
 
 int main()
 {
+    using namespace pmclasses;
+
     SalesData total; // variable to hold data for the next transaction
 
     // read the first transaction and ensure that there are data to process

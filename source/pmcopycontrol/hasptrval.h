@@ -4,6 +4,9 @@
 #include <string>
 #include <utility>
 
+namespace pmcopycontrol
+{
+
 // value-like implementation of HasPtr
 class HasPtrVal
 {
@@ -54,5 +57,7 @@ inline void swap(HasPtrVal &lhs, HasPtrVal &rhs)
     swap(lhs.ps, rhs.ps); // swap the pointers, not the string data
     swap(lhs.i, rhs.i);   // swap the int members
 }
+
+} // namespace pmcopycontrol
 
 #endif // HASPTRVAL_H_

@@ -1,7 +1,9 @@
 #include "pmclasses/salesdata.h"
 
 #include <iostream>
-#include <string>
+
+namespace pmclasses
+{
 
 SalesData::SalesData(std::istream &is)
 {
@@ -43,3 +45,5 @@ std::ostream &print(std::ostream &os, const SalesData &item)
 
     return os;
 }
+
+} // namespace pmclasses

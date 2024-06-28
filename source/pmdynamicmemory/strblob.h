@@ -3,9 +3,11 @@
 
 #include <initializer_list>
 #include <memory>
-#include <stdexcept>
 #include <string>
 #include <vector>
+
+namespace pmdynamicmemory
+{
 
 // forward declaration needed for friend declaration in StrBlob
 class StrBlobPtr;
@@ -90,5 +92,7 @@ inline StrBlobPtr StrBlob::end()
     auto ret = StrBlobPtr(*this, data->size());
     return ret;
 }
+
+} // namespace pmdynamicmemory
 
 #endif // STRBLOB_H_

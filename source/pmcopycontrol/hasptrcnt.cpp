@@ -1,5 +1,8 @@
 #include "pmcopycontrol/hasptrcnt.h"
 
+namespace pmcopycontrol
+{
+
 HasPtrCnt &HasPtrCnt::operator=(const HasPtrCnt &rhs)
 {
     ++*rhs.use;      // increment the use count of the right-hand operand
@@ -22,3 +25,5 @@ HasPtrCnt::~HasPtrCnt()
         delete use; // and the counter
     }
 }
+
+} // namespace pmcopycontrol

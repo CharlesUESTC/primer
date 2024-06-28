@@ -4,6 +4,9 @@
 #include <iostream>
 #include <string>
 
+namespace pmclasses
+{
+
 class SalesData
 {
     friend SalesData add(const SalesData &, const SalesData &);
@@ -13,12 +16,8 @@ class SalesData
 public:
     // constructors
     SalesData() = default;
-    SalesData(const std::string &s, unsigned n, double p): bookNo(s), units_sold(n), revenue(p * n)
-    {
-    }
-    SalesData(const std::string &s): bookNo(s)
-    {
-    }
+    SalesData(const std::string &s, unsigned n, double p): bookNo(s), units_sold(n), revenue(p * n) { }
+    SalesData(const std::string &s): bookNo(s) { }
     SalesData(std::istream &);
 
     // operations on SalesData objects
@@ -42,5 +41,7 @@ private:
 SalesData add(const SalesData &, const SalesData &);
 std::istream &read(std::istream &, SalesData &);
 std::ostream &print(std::ostream &, const SalesData &);
+
+} // namespace pmclasses
 
 #endif // SALESDATA_H_

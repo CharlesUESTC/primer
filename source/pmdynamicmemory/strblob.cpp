@@ -5,6 +5,9 @@
 #include <string>
 #include <vector>
 
+namespace pmdynamicmemory
+{
+
 // add and remove elements
 void StrBlob::pop_back()
 {
@@ -95,3 +98,5 @@ bool neq(const StrBlobPtr &lhs, const StrBlobPtr &rhs)
 {
     return !eq(lhs, rhs);
 }
+
+} // namespace pmdynamicmemory

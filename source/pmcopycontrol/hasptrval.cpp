@@ -2,6 +2,9 @@
 
 #include <string>
 
+namespace pmcopycontrol
+{
+
 HasPtrVal &HasPtrVal::operator=(const HasPtrVal &rhs)
 {
     auto newp = new std::string(*rhs.ps); // copy the underlying string;
@@ -11,3 +14,5 @@ HasPtrVal &HasPtrVal::operator=(const HasPtrVal &rhs)
     i = rhs.i;
     return *this; // return this object
 }
+
+} // namespace pmcopycontrol
