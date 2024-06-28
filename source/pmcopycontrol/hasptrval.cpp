@@ -15,4 +15,22 @@ HasPtrVal &HasPtrVal::operator=(const HasPtrVal &rhs)
     return *this; // return this object
 }
 
+void swap(HasPtrVal &a, HasPtrVal &b)
+{
+    a.swap(b);
+}
+
 } // namespace pmcopycontrol
+
+namespace std
+{
+
+using pmcopycontrol::HasPtrVal;
+
+template <>
+void swap<HasPtrVal>(HasPtrVal &lhs, HasPtrVal &rhs)
+{
+    lhs.swap(rhs);
+}
+
+} // namespace std

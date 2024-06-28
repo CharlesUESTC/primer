@@ -10,8 +10,6 @@ namespace pmcopycontrol
 // value-like implementation of HasPtr
 class HasPtrVal
 {
-    friend void swap(HasPtrVal &lhs, HasPtrVal &rhs);
-
 public:
     HasPtrVal(const std::string &s = std::string()): ps(new std::string(s)), i(0) { }
 
@@ -46,18 +44,29 @@ public:
         return const_cast<std::string &>(*static_cast<const HasPtrVal &>(*this));
     }
 
+    void swap(HasPtrVal &other)
+    {
+        using std::swap;
+        swap(ps, other.ps); // swap the pointers, not the string data
+        swap(i, other.i);   // swap the int members
+    }
+
 private:
     std::string *ps;
     int i;
 };
 
-inline void swap(HasPtrVal &lhs, HasPtrVal &rhs)
-{
-    using std::swap;
-    swap(lhs.ps, rhs.ps); // swap the pointers, not the string data
-    swap(lhs.i, rhs.i);   // swap the int members
-}
+void swap(HasPtrVal &a, HasPtrVal &b);
 
 } // namespace pmcopycontrol
+
+namespace std
+{
+using pmcopycontrol::HasPtrVal;
+
+template <>
+void swap<HasPtrVal>(HasPtrVal &lhs, HasPtrVal &rhs);
+
+} // namespace std
 
 #endif // HASPTRVAL_H_
