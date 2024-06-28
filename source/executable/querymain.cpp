@@ -6,6 +6,8 @@
 #include "pmdynamicmemory/queryresult.h"
 #include "pmdynamicmemory/textquery.h"
 
+namespace
+{
 void runQueries(std::ifstream &infile)
 {
     using namespace pmdynamicmemory;
@@ -26,6 +28,7 @@ void runQueries(std::ifstream &infile)
         print(std::cout, tq.query(s)) << std::endl;
     }
 }
+} // namespace
 
 // program takes single argument specifying the file to query
 int main(int argc, char **argv)
